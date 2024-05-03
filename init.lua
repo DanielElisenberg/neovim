@@ -4,7 +4,7 @@ vim.opt.termguicolors = true
 vim.g.mapleader = ' '
 vim.keymap.set('v', '*y', '"*y')
 
--- TAB SETTINGS 
+-- TAB SETTINGS
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -199,7 +199,7 @@ require('lazy').setup({
                 vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
                 vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
                 vim.keymap.set('n', '<space>lsp', vim.cmd.LspRestart)
-                vim.api.nvim_create_autocmd('BufWritePost', {
+                vim.api.nvim_create_autocmd('BufWritePre', {
                     callback = function()
                         vim.lsp.buf.format()
                     end,
@@ -216,7 +216,6 @@ require('lazy').setup({
                     'lua_ls',
                     'marksman',
                     'pyright',
-                    'ruff',
                     'ruff_lsp',
                     'rust_analyzer',
                     'svelte',
